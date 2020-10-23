@@ -1,4 +1,4 @@
-# Deploying your Dash app online
+# Deploying a Dash app online  
 
 1. Setup account on Heroku and download Heroku CLI utility
 2. Navigate to this folder
