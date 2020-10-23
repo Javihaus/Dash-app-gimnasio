@@ -3,6 +3,7 @@ import os
 from random import randint
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 
 import flask
 import dash
