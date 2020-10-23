@@ -16,6 +16,8 @@ df = pd.read_csv('gimnasio.csv')
 df = df.drop(columns=['Unnamed: 0', 'mes.1', 'mes.2', 'mes.3', 'mes.4'])
 df['date']=pd.to_datetime(df['date'])
 
+server=app.server
+
 #Setup the app
 #external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__)
