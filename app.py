@@ -16,7 +16,7 @@ df = pd.read_csv('gimnasio.csv')
 
 #Setup the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+app = dash.Dash(gimnasios, external_stylesheets=external_stylesheets)
 available_indicators = df.columns.unique()
 available_indicators
 
@@ -121,9 +121,9 @@ def update_y_timeseries(xaxis_column, yaxis_column):
 
 server = flask.Flask(__name__)
 server.secret_key = os.environ.get('secret_key', str(randint(0, 1000000)))
-app = dash.Dash(__name__, server=server)
+app = dash.Dash(gimnasios, server=server)
 
 
 # Run the Dash app
-if __name__ == '__main__':
+if gimnasios == '__main__':
     app.server.run(debug=True, threaded=True)
