@@ -18,7 +18,7 @@ df['date']=pd.to_datetime(df['date'])
 
 #Setup the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+app = dash.Dash(__name__)
 available_indicators = df.columns.unique()
 available_indicators
 
