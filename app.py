@@ -18,12 +18,12 @@ df = df.drop(columns=['Unnamed: 0', 'mes.1', 'mes.2', 'mes.3', 'mes.4'])
 df['date']=pd.to_datetime(df['date'])
 
 
+#Setup server
+server = flask.Flask(__name__)
+
 #Setup the app
 #external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-app = dash.Dash(__name__)
-
-#Setup server
-server=app.server
+app = dash.Dash(__name__, server=server)
 
 #Dash code
 available_indicators = df.columns.unique()
