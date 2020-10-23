@@ -7,9 +7,7 @@ Creating a Dash app to check a pandas dataframe including time series and other 
 3. Commit this folder to Git
 4. 'heroku git:remote -a [YOUR-APP-GIT-URL]' where YOUR-APP-GIT-URL refers to the Git link returned by 5.
 5. 'git push heroku master' will deploy your app to Heroku
-6. 'heroku ps:scale web=1' will create a Dyno and make your app live
-
-If you want to make changes to your app repeat steps 2. 3. and 5.
+6. 'heroku ps:scale web=1' will create a Dyno and make your app online.
 
 Delete the runtime.txt if you wish to run on Python 2.7.x instead of 3.6.x
 
