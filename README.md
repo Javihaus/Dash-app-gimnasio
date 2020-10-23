@@ -3,9 +3,9 @@
 Creating a Dash app to check a pandas dataframe including time series and other columns. Dash app allows to compare pair of columns and visualize each column's time series. 
 
 1. Setup account on Heroku
-2. Create a new app and deploy using GitHub. Connect to your Github branch where app files are. 
+2. Create a new app and deploy using GitHub. Connect to your Github repo where app files are. 
 3. Commit this folder to Git
-4. 'heroku login' and type in your credentials
+4. '$heroku login$' and type in your credentials
 5. 'heroku create -n [YOUR-APP-NAME]' where YOUR-APP-NAME refers to the title of your Dash app
 6. 'heroku git:remote -a [YOUR-APP-GIT-URL]' where YOUR-APP-GIT-URL refers to the Git link returned by 5.
 7. 'git push heroku master' will deploy your app to Heroku
