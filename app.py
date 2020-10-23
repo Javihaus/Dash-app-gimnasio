@@ -1,21 +1,17 @@
 # Import required libraries
-import os
-from random import randint
-import pandas as pd
-import plotly.express as px
-
-import flask
 import dash
-from dash.dependencies import Input, Output, State, Event
 import dash_core_components as dcc
 import dash_html_components as html
+import plotly.express as px
+import pandas as pd
+
+app = dash.Dash(__name__)
+server = app.server
+
+app.css.append_css({'external_url': 'https://codepen.io/chriddyp/pen/bWLwgP.css'})
 
 #Load csv data
 df = pd.read_csv('gimnasio.csv') 
-
-#Setup the app
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-app = dash.Dash(gimnasios, external_stylesheets=external_stylesheets)
 available_indicators = df.columns.unique()
 available_indicators
 
@@ -118,11 +114,7 @@ def update_y_timeseries(xaxis_column, yaxis_column):
     fig.update_yaxes(title=yaxis_column)
     return fig
 
-server = flask.Flask(__name__)
-server.secret_key = os.environ.get('secret_key', str(randint(0, 1000000)))
-app = dash.Dash(gimnasios, server=server)
-
 
 # Run the Dash app
-if gimnasios == '__main__':
-    app.server.run(debug=True, threaded=True)
+if __name__ == '__main__':
+    app.run_server()
