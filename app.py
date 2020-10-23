@@ -6,7 +6,7 @@ import plotly.express as px
 
 import flask
 import dash
-from dash.dependencies import Input, Output, State, Event
+from dash.dependencies import Input, Output
 import dash_core_components as dcc
 import dash_html_components as html
 
@@ -20,11 +20,13 @@ df['date']=pd.to_datetime(df['date'])
 #Setup the app
 #external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__)
+
 #Setup server
 server=app.server
-available_indicators = df.columns.unique()
 
 #Dash code
+available_indicators = df.columns.unique()
+
 app.layout = html.Div([
     html.Div([html.H1('GYM VS. ECONOMY' ,style={
             'textAlign': 'center', 'font-family': 'helvetica',
