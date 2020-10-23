@@ -1,4 +1,4 @@
-# Deploying a Dash app online  
+# Developing and Deploying Dash via Heroku
 
 Creating a Dash app to check a pandas dataframe including time series and other columns. Dash app allows to compare pair of columns and visualize each column's time series. 
 
