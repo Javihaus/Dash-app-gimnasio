@@ -20,8 +20,10 @@ Creating a Dash app to check a pandas dataframe including time series and other 
     $ heroku git:remote -a <app-name>
 9. Deploy application:
     
-   $ git add .
+   $ git add 
+   
    $ git commit -am "make it better"
+   
    $ git push heroku master
 
 
