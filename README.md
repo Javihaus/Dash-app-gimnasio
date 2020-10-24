@@ -17,15 +17,16 @@ Creating a Dash app to check a pandas dataframe including time series and other 
 8. Initialize a git repository in a new or existing directory with:
 
     $ git init
+    
     $ heroku git:remote -a <app-name>
 9. Deploy application:
-    
+   ``` 
    $ git add 
    
    $ git commit -am "make it better"
    
    $ git push heroku master
-
+    ```
 
 Delete the runtime.txt if you wish to run on Python 2.7.x instead of 3.6.x
 
