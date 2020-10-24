@@ -26,7 +26,7 @@ Creating a Dash app to check a pandas dataframe including time series and other 
     ```
 9. Deploy application:
    ``` 
-   $ git add 
+   $ git add .
    
    $ git commit -am "make it better"
    
