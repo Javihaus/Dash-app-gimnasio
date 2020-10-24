@@ -116,4 +116,4 @@ def update_y_timeseries(xaxis_column, yaxis_column):
 
 # Run the Dash app
 if __name__ == '__main__':
-    app.server.run()#debug=True, use_reloader=False)
+    app.server.run(debug=True, use_reloader=False)
