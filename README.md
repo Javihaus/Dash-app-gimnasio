@@ -33,5 +33,3 @@ Creating a Dash app to check a pandas dataframe including time series and other 
    $ git push heroku master
     ```
 
-Delete the runtime.txt if you wish to run on Python 2.7.x instead of 3.6.x
-
