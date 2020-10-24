@@ -16,9 +16,10 @@ available_indicators = df.columns.unique()
 
 #Dash code
 app.layout = html.Div([
-    html.Div([html.H1('GYM VS. ECONOMY' ,style={
-            'textAlign': 'center', 'font-family': 'helvetica',
-            'padding-top':'10px', 'font-weight': '800', 
+    html.Div([html.H1('GYM VS. ECONOMY' ,
+            style={
+            'textAlign': 'center', 'font-family': 'Open Sans',
+            'padding-top':'10px', 'font-weight': '600', 
             'word-spacing': '5px'
         }),
         html.Div([
@@ -26,91 +27,73 @@ app.layout = html.Div([
                 id='xaxis-column',
                 options=[{'label': i, 'value': i} for i in available_indicators],
                 value='Intensity_economia'
-            ),
-            dcc.RadioItems(
-                id='xaxis-type',
-                options=[{'label': i, 'value': i} for i in ['Linear', 'Log']],
-                value='Linear',
-                labelStyle={'display': 'inline-block'}
-            )
+        )
         ],
-        style={'width': '45%', 'display': 'inline-block', 'padding': '15px'}),
+        style={'width': '45%', 'display': 'inline-block', 'padding': '15px',
+               'font-family': 'Open Sans'}),
 
         html.Div([
             dcc.Dropdown(
                 id='yaxis-column',
                 options=[{'label': i, 'value': i} for i in available_indicators],
                 value='Intensity_gimnasio'
-            ),
-            dcc.RadioItems(
-                id='yaxis-type',
-                options=[{'label': i, 'value': i} for i in ['Linear', 'Log']],
-                value='Linear',
-                labelStyle={'display': 'inline-block'}
-            )
-        ], style={'width': '45%', 'float': 'right', 'display': 'inline-block', 
-                  'padding': '15px'})
+        )
+        ], 
+        style={'width': '45%', 'float': 'right', 'display': 'inline-block', 
+                  'padding': '15px', 'font-family': 'Open Sans'})
     ]),
         html.Div([
         dcc.Graph(
             id='indicator-graphic'
         )
-    ], style={'width':'96%', 'height': '60%', 'display': 'inline-block', 'padding': '15px'}),
+        ], 
+        style={'width':'96%', 'height': '60%', 'display': 'inline-block', 'padding': '15px'}),
         
         html.Div([
-        dcc.Graph(id='x-time-series'),
-    ], style={'width': '46%', 'display': 'inline-block', 'padding': '15px'}),
+        dcc.Graph(id='x-time-series'
+        )
+        ], 
+        style={'width': '46%', 'display': 'inline-block', 'padding': '15px'}),
   
-  html.Div([
-        dcc.Graph(id='y-time-series'),
-    ], style={'width': '46%', 'display': 'inline-block', 'padding': '15px'})
+        html.Div([
+        dcc.Graph(id='y-time-series'
+        )
+        ],
+        style={'width': '46%', 'display': 'inline-block', 'padding': '15px'})
 
 ])
 
 @app.callback(
     Output('indicator-graphic', 'figure'),
     [Input('xaxis-column', 'value'),
-     Input('yaxis-column', 'value'),
-     Input('xaxis-type', 'value'),
-     Input('yaxis-type', 'value')])
+     Input('yaxis-column', 'value')])
 
-def update_graph(xaxis_column, yaxis_column,
-                 xaxis_type, yaxis_type):
+def update_graph(xaxis_column, yaxis_column):
     
     fig = px.density_heatmap(df, x=xaxis_column,
-                     y=yaxis_column)
-    #fig.update_layout(margin={'l': 40, 'b': 40, 't': 10, 'r': 0}, hovermode='closest')
-    #fig.update_xaxes(title=xaxis_column) 
-    #fig.update_yaxes(title=yaxis_column) 
+                            y=yaxis_column)
     return fig
+
 
 @app.callback(
     Output('x-time-series', 'figure'),
-    [Input('xaxis-column', 'value'),
-     Input('yaxis-column', 'value')])
+    [Input('xaxis-column', 'value')])
 
-def update_y_timeseries(xaxis_column, yaxis_column):
+def update_x_timeseries(xaxis_column):
     
     fig = px.scatter(df, x='date', y=xaxis_column,
                     trendline='lowess', trendline_color_override='crimson')
-    #fig.update_layout(margin={'l': 10, 'b': 10, 't': 10, 'r': 0}, hovermode='closest')
-    #fig.update_xaxes(title_text="Time") 
-    #fig.update_yaxes(title=xaxis_column)
     return fig
 
 
 @app.callback(
     Output('y-time-series', 'figure'),
-    [Input('xaxis-column', 'value'),
-     Input('yaxis-column', 'value')])
+    [Input('yaxis-column', 'value')])
 
-def update_y_timeseries(xaxis_column, yaxis_column):
+def update_y_timeseries(yaxis_column):
     
     fig = px.scatter(df, x='date', y=yaxis_column,
                     trendline='lowess', trendline_color_override='crimson')
-    #fig.update_layout(margin={'l': 10, 'b': 10, 't': 10, 'r': 0}, hovermode='closest')
-    #fig.update_xaxes(title_text="Time") 
-    #fig.update_yaxes(title=yaxis_column)
     return fig
 
 
