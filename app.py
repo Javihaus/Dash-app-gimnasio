@@ -1,33 +1,20 @@
-# Import required libraries
-import os
-from random import randint
-import pandas as pd
-import plotly.express as px
-import plotly.graph_objects as go
-
-import flask
-import dash
+import flask; import plotly.express as px
+import dash; import dash_core_components as dcc; import dash_html_components as html
 from dash.dependencies import Input, Output
-import dash_core_components as dcc
-import dash_html_components as html
+import pandas as pd
 
 
-#Load csv data
+server = flask.Flask(__name__)
+app = dash.Dash(__name__, server=server)
+
+
+#Load csv data 
 df = pd.read_csv('gimnasio.csv') 
 df = df.drop(columns=['Unnamed: 0', 'mes.1', 'mes.2', 'mes.3', 'mes.4'])
 df['date']=pd.to_datetime(df['date'])
-
-
-#Setup server
-server = flask.Flask(__name__)
-
-#Setup the app
-#external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-app = dash.Dash(__name__, server=server)
-
-#Dash code
 available_indicators = df.columns.unique()
 
+#Dash code
 app.layout = html.Div([
     html.Div([html.H1('GYM VS. ECONOMY' ,style={
             'textAlign': 'center', 'font-family': 'helvetica',
@@ -129,4 +116,4 @@ def update_y_timeseries(xaxis_column, yaxis_column):
 
 # Run the Dash app
 if __name__ == '__main__':
-    app.server.run(debug=True)
+    app.server.run()#debug=True, use_reloader=False)
