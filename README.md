@@ -9,13 +9,17 @@ Creating a Dash app to check a pandas dataframe including time series and other 
 5. Change to directoty where your app files are:  
     $ cd ~/myapp
 6. Login in Heroku:
+
     $ heroku login   
 7. Create an app: 
+
     $ heroku create
-8. Initialize a git repository in a new or existing directory with 
+8. Initialize a git repository in a new or existing directory with:
+
     $ git init
     $ heroku git:remote -a <app-name>
-9. Deploy application
+9. Deploy application:
+    
    $ git add .
    $ git commit -am "make it better"
    $ git push heroku master
