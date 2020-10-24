@@ -77,11 +77,11 @@ app.layout = html.Div([
 def update_graph(xaxis_column, yaxis_column,
                  xaxis_type, yaxis_type):
     
-    fig = px.density_heatmap(x=df[xaxis_column],
-                     y=df[yaxis_column])
-    fig.update_layout(margin={'l': 40, 'b': 40, 't': 10, 'r': 0}, hovermode='closest')
-    fig.update_xaxes(title=xaxis_column) 
-    fig.update_yaxes(title=yaxis_column) 
+    fig = px.density_heatmap(df, x=xaxis_column,
+                     y=yaxis_column)
+    #fig.update_layout(margin={'l': 40, 'b': 40, 't': 10, 'r': 0}, hovermode='closest')
+    #fig.update_xaxes(title=xaxis_column) 
+    #fig.update_yaxes(title=yaxis_column) 
     return fig
 
 @app.callback(
@@ -91,11 +91,11 @@ def update_graph(xaxis_column, yaxis_column,
 
 def update_y_timeseries(xaxis_column, yaxis_column):
     
-    fig = px.scatter(x=df['date'], y=df[xaxis_column],
+    fig = px.scatter(df, x='date', y=xaxis_column,
                     trendline='lowess', trendline_color_override='crimson')
-    fig.update_layout(margin={'l': 10, 'b': 10, 't': 10, 'r': 0}, hovermode='closest')
-    fig.update_xaxes(title_text="Time") 
-    fig.update_yaxes(title=xaxis_column)
+    #fig.update_layout(margin={'l': 10, 'b': 10, 't': 10, 'r': 0}, hovermode='closest')
+    #fig.update_xaxes(title_text="Time") 
+    #fig.update_yaxes(title=xaxis_column)
     return fig
 
 
@@ -106,11 +106,11 @@ def update_y_timeseries(xaxis_column, yaxis_column):
 
 def update_y_timeseries(xaxis_column, yaxis_column):
     
-    fig = px.scatter(x=df['date'], y=df[yaxis_column],
+    fig = px.scatter(df, x='date', y=yaxis_column,
                     trendline='lowess', trendline_color_override='crimson')
-    fig.update_layout(margin={'l': 10, 'b': 10, 't': 10, 'r': 0}, hovermode='closest')
-    fig.update_xaxes(title_text="Time") 
-    fig.update_yaxes(title=yaxis_column)
+    #fig.update_layout(margin={'l': 10, 'b': 10, 't': 10, 'r': 0}, hovermode='closest')
+    #fig.update_xaxes(title_text="Time") 
+    #fig.update_yaxes(title=yaxis_column)
     return fig
 
 
