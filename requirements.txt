@@ -1,6 +1,6 @@
 pandas
 gunicorn
-plotly==4.12.0
+plotly==3.10
 chart-studio==1.0.0
 dash
 dash-renderer
