@@ -4,7 +4,7 @@ Creating a Dash app to check a pandas dataframe including a time series column w
 
 1. Setup account on Heroku
 2. Create a new app and deploy using GitHub. Connect to your Github repo where app files are. 
-3. As alternative, create app with [The Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#getting-started)
+3. As alternative, deploy app with [The Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#getting-started)
 4. Install [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
 5. Change to directory where your app files are:  
     ```
