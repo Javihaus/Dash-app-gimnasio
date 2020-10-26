@@ -1,6 +1,6 @@
 pandas
 gunicorn
-plotly==3.10
+plotly>=4.1.0
 plotly_express
 chart-studio==1.0.0
 dash
