@@ -1,6 +1,7 @@
 pandas
 gunicorn
 plotly==3.10
+plotly_express
 chart-studio==1.0.0
 dash
 dash-renderer
